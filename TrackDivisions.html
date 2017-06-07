@@ -18,23 +18,86 @@
 			const SHSAA_YEAR = 2016;
  			const SHSAA_MONTH = 8;
 			
-			var birthYear;
-			var birthMonth;
+			var year = document.getElementById("birthYear");
+			var birthYear = year.options[year.selectedIndex].value;
 			
-			var age;
+			var month = document.getElementById("birthMonth");
+			var birthMonth = month.options[month.selectedIndex].value;
 			
-			
-			
-			
-			
+			var age = SHSAA_YEAR - birthYear;
 			
 			
+		if (birthMonth <= 8 && age >= 16){
+		
+document.getElementById("result").innerHTML = "Senior";
+		
+		} else if (birthMonth > 8 && age >= 16){
+				
+document.getElementById("result").innerHTML = "Senior";
+		
+		}
+		
+		else if (birthMonth <= 8 && age == 15){
+				
+document.getElementById("result").innerHTML = "Junior";
+		
+		} else if (birthMonth > 8 && age == 15){
+		
+document.getElementById("result").innerHTML = "Midget";
+		
+		}
+		
+		
+		else if (birthMonth <= 8 && age == 14){
+		
+document.getElementById("result").innerHTML = "Midget";
+		
+		}else if (birthMonth > 8 && age == 14){
+		
+document.getElementById("result").innerHTML = "Bantam";
+		
+		}
+		
+		else if (birthMonth <= 8 && age == 13){
+		
+document.getElementById("result").innerHTML = "Bantam";
+		
+		} else if (birthMonth > 8 && age == 13){
+		
+document.getElementById("result").innerHTML = "Pee Wee";
+		
+		}
+		
+		 else if (birthMonth <= 8 && age == 12){
+		
+document.getElementById("result").innerHTML = "Pee Wee";
+		
+		} else if (birthMonth > 8 && age == 12){
+		
+document.getElementById("result").innerHTML = "Wee Pee";
+		
+		} 
+		
+		else if (birthMonth <= 8 && age == 11){
+		
+document.getElementById("result").innerHTML = "Wee Pee";
+		
+		} else if (birthMonth > 8 && age == 11){
+		
+document.getElementById("result").innerHTML = "Wee Pee";
+		
+		}
 			
 			
 			
 			
 			
-			document.getElementById("result").innerHTML = "Hello there!";
+			
+			
+			
+			
+			
+			//document.getElementById("result").innerHTML = "";
 		
 		}
 		
@@ -54,7 +117,7 @@ Track Divisions
 
 <form>
 
-<table width="60%" border="1">
+<table width="60%" border="0">
 
 <tr>
 
@@ -63,7 +126,7 @@ Track Divisions
 	</td>
 	
 	<td>	
-		<select name="birthYear" onClick="clearOutput();">
+		<select id ="birthYear" onClick="clearOutput();">
 		
 			<option value="1999" selected>1999</option>
 			<option value="2000">2000</option>
@@ -72,7 +135,7 @@ Track Divisions
 			<option value="2003">2003</option>
 			<option value="2004">2004</option>
 			<option value="2005">2005</option>
-			<option value="2006">2006</option>
+			
 		</select>		
 	</td>	
 </tr>
@@ -83,7 +146,7 @@ Track Divisions
 	</td>
 	
 	<td>
-		<select name="birthMonth" onClick="clearOutput();">
+		<select id ="birthMonth" onClick="clearOutput();">
 		
 			<option value="1" selected>January</option>
 			<option value="2">February</option>

@@ -11,7 +11,7 @@ public class ParseString
 	public static void main(String[] args)
 	{
 		
-		String lineOfText = "Babyak,Akilah,2000,6,June";
+		//String lineOfText = "Babyak,Akilah,2000,6,June";
 		
 		String last;
 		String first;
@@ -47,8 +47,7 @@ public class ParseString
 		
 		
 		lineOfText =  lineOfText.substring(coma + 1);
-		
-		//System.out.println("\n\tlineOfText = " + lineOfText);
+	
 		
 		//Birth Year
 		

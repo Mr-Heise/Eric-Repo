@@ -13,16 +13,32 @@ public class Divisions
 {
 	public static void main(String[] args)
 	{
-		
+		//Read the Track Divisions file to get the information to read
 		File textFile = new File("Track_Division_Input_File.csv");
 		
 		FileReader in;
 		
 		BufferedReader readFile;
 		
+		//Declare Strings to store the output
+		
 		String lineOfText;
 		
 		String division;
+		
+		String outputText;
+		
+		//After the Program goes through the Input file it outputs a new file
+		
+		File outputFile = new File("Track_Divisions.txt");
+		
+		FileWriter out;
+		
+		BufferedWriter writeFile;
+		
+		//declare and initilize an integer to count the amount of students
+		
+		int counter = 0;
 		
 		System.out.println("\n\t**** DIVSIONS ****");
 		
@@ -31,6 +47,13 @@ public class Divisions
 			in = new FileReader(textFile);
 			
 			readFile = new BufferedReader(in);
+			
+			
+			out = new FileWriter(outputFile);
+			
+			writeFile = new BufferedWriter(out);
+			
+			writeFile.write("\n\tTRACK AND FIELD DIVISIONS FOR THE 2016/17 YEAR\n");
 			
 			while ((lineOfText = readFile.readLine()) != null) {
 			
@@ -45,8 +68,10 @@ public class Divisions
 				int birthYear = 0;
 				int birthMonth = 0;
 				int coma;
-		
-				System.out.println("\n\t**** STUDENT ****");
+				
+				
+				counter++;
+				//System.out.println("\n\t**** STUDENT ****");
 		
 				//Last Name
 		
@@ -54,7 +79,7 @@ public class Divisions
 		
 				last = lineOfText.substring(0, coma);
 		
-				System.out.println("\n\tLast Name = " + last);
+				//System.out.println("\n\tLast Name = " + last);
 		
 		
 				lineOfText =  lineOfText.substring(coma + 1);
@@ -68,7 +93,7 @@ public class Divisions
 		
 				first = lineOfText.substring(0, coma);
 		
-				System.out.println("\n\tFirst Name = " + first);
+				//System.out.println("\n\tFirst Name = " + first);
 		
 		
 				lineOfText =  lineOfText.substring(coma + 1);
@@ -80,7 +105,7 @@ public class Divisions
 		
 				birthYear = Integer.parseInt(lineOfText.substring(0,coma));
 		
-				System.out.println("\n\tBirth Year = " + birthYear);
+				//System.out.println("\n\tBirth Year = " + birthYear);
 		
 		
 	
@@ -92,7 +117,7 @@ public class Divisions
 		
 				birthMonth = Integer.parseInt(lineOfText.substring(0,coma));
 		
-				System.out.println("\n\tBirth Month = " + birthMonth);
+				//System.out.println("\n\tBirth Month = " + birthMonth);
 		
 		
 	
@@ -104,9 +129,20 @@ public class Divisions
 				//determine track division
 				division = determineDivision(birthYear, birthMonth);
 				
-				System.out.println("\n\tDivision = " + division);
+				outputText = "\n\t" + first + " " + last + " is a " + division;
+				
+				
+				
+				writeFile.write(outputText + "\n");
+				//writeFile.newLine();
+				
+				//System.out.println("\n\tDivision = " + division);
 				//end it
 				}
+				
+				writeFile.close();
+				
+				System.out.println("\n\tProgram Complete: " + counter + " results were written to the output file.");
 				
 		} catch (FileNotFoundException e) {
 		
@@ -136,9 +172,13 @@ public class Divisions
 		
 			result = "Senior";
 		
-		} else if (birthMonth > 8 && age >= 16){
+		} else if (age >= 17){
 				
 			result = "Senior";
+		
+		} else if (birthMonth > 8 && age == 16){
+				
+			result = "Junior";
 		
 		}
 		
